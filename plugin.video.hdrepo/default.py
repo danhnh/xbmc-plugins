@@ -149,7 +149,7 @@ def search(url, query = '', type='folder', page=0):
     if query is None:
       return
   
-  url=SEARCH_URL % (type,query.replace(' ', '+'),__settings__.getSetting('search_num'),str(int(__settings__.getSetting('search_num'))*page),'all')
+  url=SEARCH_URL % (type,query.replace(' ', '+'),'50',str(50*page),'all')
   soup = BeautifulSoup(str(make_request(url)), convertEntities=BeautifulSoup.HTML_ENTITIES)		
   results=soup.findAll('div', {'class': 'g'})
   if type=='folder':
